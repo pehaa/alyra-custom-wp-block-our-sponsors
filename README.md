@@ -122,6 +122,8 @@ N’oubliez pas de lancer le serveur de développement :
 npm run start
 ```
 
+### Fichiers `edit.js` & `save.js`
+
 Ce qui sera affiché dans l'éditeur :
 
 ```js
@@ -139,7 +141,7 @@ export default function Edit({ className }) {
 }
 ```
 
-Et ce qui sera enregistré dans la base de données quand nous sauvegardons l'aticle :
+Et ce qui sera enregistré dans la base de données quand nous sauvegardons l'article :
 
 ```js
 // src/save.js
