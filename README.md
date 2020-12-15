@@ -34,12 +34,12 @@ cd our-sponsors
     └── style.scss
 ```
 
-Extensions (plugins) WordPress ont pour but d'ajouter des fonctionnalités. Dans notre cas, le plugin `our-sponsors` ajoute un nouvel block au sein de l’éditeur.
+Les extensions (plugins) WordPress ont pour but d'ajouter des fonctionnalités. Dans notre cas, le plugin `our-sponsors` ajoute un nouvel block au sein de l’éditeur.
 
 Techniquement, un plugin est un répertoire (ou un fichier simple) qui :
 
 - est placé dans `wp-content/plugins`
-- contient un fichier `.php` qui commence par une structure de commentaires , qui permet au WordPress de reconnaître le plugin.
+- contient un fichier `.php` qui commence par une structure de commentaires, qui permet à WordPress de reconnaître le plugin.
 
 👉 Nous allons modifier la partie entête de fichier `our-sponsors.php`
 
@@ -62,7 +62,7 @@ Nous retrouvons notre plugin dans le dashboard de WordPress (Extensions install�
 
 ![](https://paper-attachments.dropbox.com/s_F45F85F9387024D6F24B7C73EA6CDAAB2433290EEB9CB765965C08123927E256_1608015303016_All-in-One+WP+Migration.png)
 
-Nous allons activer _Our Sponsors_. Ensuite nous allons le tester en créant un nouvel article. Effectivement, un nouveau block il y est disponible 🎉.
+Nous allons activer _Our Sponsors_. Ensuite nous allons le tester en créant un nouvel article. Effectivement, un nouveau block y est disponible 🎉.
 
 ![](https://paper-attachments.dropbox.com/s_F45F85F9387024D6F24B7C73EA6CDAAB2433290EEB9CB765965C08123927E256_1608015323605_Visibilite.png)
 
@@ -94,11 +94,8 @@ registerBlockType("create-block/our-sponsors", {
    * L'icône affichée pour ce block, https://developer.wordpress.org/resource/dashicons/
    */
   icon: "smiley",
-  /**
-   * Optional block extended support features.
-   */
   supports: {
-    // Removes support for an HTML mode.
+    // enlève le support pour le mode HTML.
     html: false,
   },
   /**
@@ -114,7 +111,7 @@ registerBlockType("create-block/our-sponsors", {
 
 👉 Pour commencer nous allons modifier le block de base afin qu’il affiche le paragraphe suivant :
 
-> The publishing of this content was possible thanks to the support of Alyra.
+> The publishing of this content was possible thanks to the support of [Alyra](https://alyra.fr).
 
 N’oubliez pas de lancer le serveur de développement :
 
@@ -141,7 +138,7 @@ export default function Edit({ className }) {
 }
 ```
 
-et ce qui sera enregistré dans la base de données quand nous sauvegardons l'article :
+et ce qui sera enregistré dans la base de données quand nous sauvegarderons l'article :
 
 ```js
 // src/save.js
@@ -164,7 +161,7 @@ export default function save() {
 
 ### Fichiers .scss
 
-Nous allons modifier les fichier styles :
+Nous allons modifier les fichiers style :
 
 ```scss
 // src/style.scss - s'applique au front et back-end
@@ -186,9 +183,9 @@ Nous allons modifier les fichier styles :
 
 ---
 
-## Attributes du block
+## Attributs du block
 
-Les `attributes` servent à enregistrer les données concernant notre block. Les `attributes` informent WordPress comment interpreter le contenu enregistré dans la base de données : quels sont les éléments statiques, et quelles parties sont personnalisables dans l’éditeur.
+Les `attributes` servent à enregistrer les données concernant notre block. Les `attributes` informent WordPress comment interpréter le contenu enregistré dans la base de données : quels sont les éléments statiques, et quelles parties sont personnalisables dans l’éditeur.
 
 👉 Nous allons ajouter ceci dans `registerBlockType`
 
@@ -209,7 +206,7 @@ attributes: {
 },
 ```
 
-(Vous trouverez plus de détails sur la configuration des attributs dans la documentation).
+(Vous trouverez plus de détails sur la configuration des attributs [dans la documentation](https://developer.wordpress.org/block-editor/developers/block-api/block-attributes/)).
 
 Nous passons les `attributes` et la fonction `setAttributes` en tant que props dans la fonction `Edit`
 
@@ -257,14 +254,16 @@ export default function save({ attributes }) {
 
 ## Propriété `supports`
 
-Nous pouvons ajouter les contrôles des couleurs :
+Nous pouvons ajouter les réglages des couleurs :
 
-    supports: {
-      html: false,
-      colors: true
-    }
+```js
+supports: {
+  html: false,
+  colors: true
+}
+```
 
-Vous trouverez plus d’options dans la documentation.
+Vous trouverez plus d’options [dans la documentation](https://developer.wordpress.org/block-editor/developers/block-api/block-supports/).
 
 ---
 
@@ -275,10 +274,10 @@ Vous trouverez plus d’options dans la documentation.
 Dans l’informatique, le système gettext permet de séparer la programmation de la traduction.
 Comment gettext fonctionne ?
 
-Au cours de la programmation, toutes les chaînes de caractères qui devraient être traduites sont marqués de la façon spéciale `__("I should be translated", "project-text-domain")`.  
+Au cours de la programmation, toutes les chaînes de caractères qui devraient être traduites sont marqués de la façon spéciale, par exemple `__( "I should be translated", "project-text-domain" )`.  
 Un site WordPress est composé de plusieurs “projets” (thème et plusieurs extensions), `"project-text-domain"` permet de traiter les textes de chaque thème et extension séparément.  
   
-✅Dans notre cas, le text domain est `"our-sponsors"` et nous mettons tous nos texte ainsi : `__("I should be translated", "our-sponsors")`  
+✅Dans notre cas, le *text domain* est `"our-sponsors"` et nous mettons tous nos textes ainsi : `__( "I should be translated", "our-sponsors" )`  
   
 ⬇️  
   
