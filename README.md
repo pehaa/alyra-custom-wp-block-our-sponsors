@@ -6,7 +6,7 @@ Nous allons utiliser @wordpress/create-block un package qui génère un simple p
 
 La commande `npx @wordpress/create-block` génère du code PHP, JS, CSS indispensable pour démarrer le projet et enregistrer un plugin WordPress. Il prend aussi en charge toute la configuration nécessaire.
 
-👉 Dans votre instance de WordPress en local, déplacez-vous dans le répertoire des extenstions `wp-content/plugins` et installez `@wordpress/create-block` :
+👉 Dans votre instance de WordPress en local, déplacez-vous dans le répertoire des extensions `wp-content/plugins` et installez `@wordpress/create-block` :
 
 ```bash
 cd wp-content/plugins
@@ -76,7 +76,7 @@ Un block Gutenberg est un objet JavaScript avec un nombre de propriétés et mé
 // src/index.js
 registerBlockType("create-block/our-sponsors", {
   /**
-   * Le titre de ce block, affiché dand l'éditeur, il peut être traduit
+   * Le titre de ce block, affiché dans l'éditeur, il peut être traduit
    */
   title: __("Our Sponsors", "our-sponsors"),
   /**
@@ -188,7 +188,7 @@ Nous allons modifier les fichier styles :
 
 ## Attributes du block
 
-Les `attributes` servent à enregistrer les données concernant notre block. Les `attributes` informent WordPress comment interpreter le contenu enregistré dans la base de données : quels sont les éléments statiques, et quelles parties sont personnalisable dans l’éditeur.
+Les `attributes` servent à enregistrer les données concernant notre block. Les `attributes` informent WordPress comment interpreter le contenu enregistré dans la base de données : quels sont les éléments statiques, et quelles parties sont personnalisables dans l’éditeur.
 
 👉 Nous allons ajouter ceci dans `registerBlockType`
 
@@ -275,7 +275,7 @@ Vous trouverez plus d’options dans la documentation.
 Dans l’informatique, le système gettext permet de séparer la programmation de la traduction.
 Comment gettext fonctionne ?
 
-Au cours de la programmation, toutes les chaînes de carectères qui devraient être traduites sont marqués de la façon spéciale `__("I should be translated", "project-text-domain")`.  
+Au cours de la programmation, toutes les chaînes de caractères qui devraient être traduites sont marqués de la façon spéciale `__("I should be translated", "project-text-domain")`.  
 Un site WordPress est composé de plusieurs “projets” (thème et plusieurs extensions), `"project-text-domain"` permet de traiter les textes de chaque thème et extension séparément.  
   
 ✅Dans notre cas, le text domain est `"our-sponsors"` et nous mettons tous nos texte ainsi : `__("I should be translated", "our-sponsors")`  
@@ -331,7 +331,7 @@ La ligne suivante génère le fichier JSON basé sur notre fichier `.po`. Le nom
 
 - text-domain → our-sponsors
 - locale → fr_FR
-- et handler est le premier argument de la foncion `wp_set_script_translations` (fichier `our-sponsors.php`) → create-block-our-sponsors-block-editor
+- et handler est le premier argument de la fonction `wp_set_script_translations` (fichier `our-sponsors.php`) → create-block-our-sponsors-block-editor
 
   npx po2json our-sponsors-fr_FR.po our-sponsors-fr_FR-create-block-our-sponsors-block-editor.json -f jed1.x
 
