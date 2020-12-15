@@ -2,7 +2,7 @@
 
 ## WordPress plugin
 
-    Nous allons utiliser @wordpress/create-block un package qui génère un simple plugin WordPress qui ajoute un simple block à l’éditeur. Cette approche,  inspirée par `create-react-app`, recommandée par WordPress. La commande `npx @wordpress/create-block` génère du code PHP, JS, CSS indispensable pour démarrer le projet et enregistrer un plugin WordPress. Il prend aussi en charge toute la configuration nécessaire.
+Nous allons utiliser @wordpress/create-block un package qui génère un simple plugin WordPress qui ajoute un simple block à l’éditeur. Cette approche, inspirée par `create-react-app`, recommandée par WordPress. La commande `npx @wordpress/create-block` génère du code PHP, JS, CSS indispensable pour démarrer le projet et enregistrer un plugin WordPress. Il prend aussi en charge toute la configuration nécessaire.
 
 👉 Dans votre instance de WordPress en local, déplacez-vous dans le répertoire des extenstions `wp-content/plugins` et installez `@wordpress/create-block` :
 
