@@ -255,7 +255,7 @@ export default function save({ attributes }) {
 
 ---
 
-### Propriété `supports`
+## Propriété `supports`
 
 Nous pouvons ajouter les contrôles des couleurs :
 
