@@ -2,8 +2,7 @@
 
 ## WordPress plugin
 
-Nous allons utiliser @wordpress/create-block un package qui génère un simple plugin WordPress qui ajoute un simple block à l’éditeur.  
-Cette approche, inspirée par `create-react-app`, est recommandée par WordPress.
+Nous allons utiliser @wordpress/create-block un package qui génère un simple plugin WordPress qui ajoute un simple block à l’éditeur. Cette approche, inspirée par `create-react-app`, est recommandée par WordPress.
 
 La commande `npx @wordpress/create-block` génère du code PHP, JS, CSS indispensable pour démarrer le projet et enregistrer un plugin WordPress. Il prend aussi en charge toute la configuration nécessaire.
 
@@ -35,7 +34,7 @@ cd our-sponsors
     └── style.scss
 ```
 
-Extensions (plugins) WordPress ont pour but ajouter des fonctionnalités. Dans notre cas, le plugin `our-sponsors` ajoute un nouvel block au sein de l’éditeur.
+Extensions (plugins) WordPress ont pour but d'ajouter des fonctionnalités. Dans notre cas, le plugin `our-sponsors` ajoute un nouvel block au sein de l’éditeur.
 
 Techniquement, un plugin est un répertoire (ou un fichier simple) qui :
 
@@ -63,7 +62,7 @@ Nous retrouvons notre plugin dans le dashboard de WordPress (Extensions install�
 
 ![](https://paper-attachments.dropbox.com/s_F45F85F9387024D6F24B7C73EA6CDAAB2433290EEB9CB765965C08123927E256_1608015303016_All-in-One+WP+Migration.png)
 
-Nous allons activer Our Sponsors. Ensuite nous allons le tester en créant un nouvel article. Effectivement, un nouveau block il y est disponible 🎉
+Nous allons activer _Our Sponsors_. Ensuite nous allons le tester en créant un nouvel article. Effectivement, un nouveau block il y est disponible 🎉.
 
 ![](https://paper-attachments.dropbox.com/s_F45F85F9387024D6F24B7C73EA6CDAAB2433290EEB9CB765965C08123927E256_1608015323605_Visibilite.png)
 
@@ -119,10 +118,11 @@ registerBlockType("create-block/our-sponsors", {
 
 N’oubliez pas de lancer le serveur de développement :
 
-```
+```bash
 npm run start
+```
 
-
+```js
 // src/edit.js
 export default function Edit({ className }) {
   return (
