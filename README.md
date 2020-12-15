@@ -278,16 +278,16 @@ Comment gettext fonctionne ?
 Au cours de la programmation, toutes les chaînes de carectères qui devraient être traduites sont marqués de la façon spéciale `__("I should be translated", "project-text-domain")`.  
 Un site WordPress est composé de plusieurs “projets” (thème et plusieurs extensions), `"project-text-domain"` permet de traiter les textes de chaque thème et extension séparément.
 ✅Dans notre cas, le text domain est `"our-sponsors"` et nous mettons tous nos texte ainsi : `__("I should be translated", "our-sponsors")`
-⬇️
-👉Premièrement, un fichier modèle (template, fichier POT) est crée. Ce fichier aura l’extension `.pot` (Portable Object Template). Il comprendra tous les chaines de caractères à traduire, extraites de tous les fichiers au sein d’un projet.
-⬇️
-👉Le fichier POT sera utilisé pour créer les fichier `.po` (Portable Object) pour chaque langue de traduction (par exemple `fr_FR.po`, `de_DE.po`, etc.)
-⬇️
-Le fichiers `.po` sont compilés en fichiers binaires `.mo` (Machine Object)
-⬇️
-Les fichiers `.mo` sont utilisés par WordPress pour assembler le document HTML selon la langue du site.
-⬇️
-Dans le cas des traductions dans les fichiers .js, WordPress a besoin de convertir le fichier `.po` en format JSON
+⬇️  
+👉Premièrement, un fichier modèle (template, fichier POT) est crée. Ce fichier aura l’extension `.pot` (Portable Object Template). Il comprendra tous les chaines   de caractères à traduire, extraites de tous les fichiers au sein d’un projet.  
+⬇️    
+👉Le fichier POT sera utilisé pour créer les fichier `.po` (Portable Object) pour chaque langue de traduction (par exemple `fr_FR.po`, `de_DE.po`, etc.)  
+⬇️   
+Le fichiers `.po` sont compilés en fichiers binaires `.mo` (Machine Object)  
+⬇️  
+Les fichiers `.mo` sont utilisés par WordPress pour assembler le document HTML selon la langue du site.  
+⬇️  
+Dans le cas des traductions dans les fichiers .js, WordPress a besoin de convertir le fichier `.po` en format JSON.
 
 ### Loco Translate
 
