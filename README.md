@@ -1,4 +1,4 @@
-# Custom Blog - création d’un extension WordPress
+# Custom Block - création d’un extension WordPress
 
 ## WordPress plugin
 
