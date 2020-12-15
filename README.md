@@ -333,7 +333,9 @@ La ligne suivante génère le fichier JSON basé sur notre fichier `.po`. Le nom
 - locale → fr_FR
 - et handler est le premier argument de la fonction `wp_set_script_translations` (fichier `our-sponsors.php`) → create-block-our-sponsors-block-editor
 
-  npx po2json our-sponsors-fr_FR.po our-sponsors-fr_FR-create-block-our-sponsors-block-editor.json -f jed1.x
+```bash
+npx po2json our-sponsors-fr_FR.po our-sponsors-fr_FR-create-block-our-sponsors-block-editor.json -f jed1.x
+```
 
 Nous devons ensuite ajouter le répertoire où se trouvera notre fichier traduction en tant que le troisième argument de `wp_set_script_translations`
 
