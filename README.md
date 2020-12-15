@@ -1,6 +1,6 @@
-Custom Blog - création d’un extension WordPress
+# Custom Blog - création d’un extension WordPress
 
-WordPress plugin
+## WordPress plugin
 
     Nous allons utiliser @wordpress/create-block un package qui génère un simple plugin WordPress qui ajoute un simple block à l’éditeur. Cette approche,  inspirée par `create-react-app`, recommandée par WordPress. La commande `npx @wordpress/create-block` génère du code PHP, JS, CSS indispensable pour démarrer le projet et enregistrer un plugin WordPress. Il prend aussi en charge toute la configuration nécessaire.
 
@@ -12,23 +12,25 @@ npx @wordpress/create-block our-sponsors
 cd our-sponsors
 ```
 
-    ├── block.json
-    ├── build
-    │   ├── index.asset.php
-    │   ├── index.css
-    │   ├── index.js
-    │   └── style-index.css
-    ├── node_modules
-    ├── our-sponsors.php
-    ├── package-lock.json
-    ├── package.json
-    ├── readme.txt
-    └── src
-        ├── edit.js
-        ├── editor.scss
-        ├── index.js
-        ├── save.js
-        └── style.scss
+```bash
+├── block.json
+├── build
+│   ├── index.asset.php
+│   ├── index.css
+│   ├── index.js
+│   └── style-index.css
+├── node_modules
+├── our-sponsors.php
+├── package-lock.json
+├── package.json
+├── readme.txt
+└── src
+    ├── edit.js
+    ├── editor.scss
+    ├── index.js
+    ├── save.js
+    └── style.scss
+```
 
 Extensions (plugins) WordPress ont pour but ajouter des fonctionnalités. Dans notre cas, le plugin `our-sponsors` ajoute un nouvel block au sein de l’éditeur.
 
@@ -39,18 +41,20 @@ Techniquement, un plugin est un répertoire (ou un fichier simple) qui :
 
 👉 Nous allons modifier la partie entête de fichier `our-sponsors.php`
 
-    <?php
-    /**
-     * Plugin Name:     Our Sponsors
-     * Description:     Simple block that adds some information about the article sponsors.
-     * Version:         0.1.0
-     * Author:          Paulina Hetman
-     * License:         GPL-2.0-or-later
-     * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
-     * Text Domain:     our-sponsors
-     *
-     * @package         create-block
-     */
+```php
+<?php
+/**
+ * Plugin Name:     Our Sponsors
+ * Description:     Simple block that adds some information about the article sponsors.
+ * Version:         0.1.0
+ * Author:          Paulina Hetman
+ * License:         GPL-2.0-or-later
+ * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:     our-sponsors
+ *
+ * @package         create-block
+ */
+```
 
 Nous retrouvons notre plugin dans le dashboard de WordPress (Extensions installées)
 
@@ -62,47 +66,49 @@ Nous allons activer Our Sponsors. Ensuite nous allons le tester en créant un no
 
 ---
 
-L’anatomie d’un Block
+## L’anatomie d’un Block
 
 Un block Gutenberg est un objet JavaScript avec un nombre de propriétés et méthodes spécifiques.
 
-    // src/index.js
-    registerBlockType( 'create-block/our-sponsors', {
-      /**
-       * Le titre de ce block, affiché dand l'éditeur, il peut être traduit
-       */
-      title: __( 'Our Sponsors', 'our-sponsors' ),
-      /**
-       * La courte description pour ce block, affichée dans le barre latérale. Elle peut être traduite.
-       */
-      description: __(
-        'Simple block that adds some information about the article sponsors.',
-        'our-sponsors'
-      ),
-      /**
-       * Les Blocks sont groupés par catégories  (`common`, `embed`, `formatting`, `layout` ou `widgets`).
-       */
-      category: 'widgets',
-      /**
-       * L'icône affichée pour ce block, https://developer.wordpress.org/resource/dashicons/
-       */
-      icon: 'smiley',
-      /**
-       * Optional block extended support features.
-       */
-      supports: {
-        // Removes support for an HTML mode.
-        html: false,
-      },
-      /**
-       * méthode edit, Edit importée depuis ./edit.js
-       */
-      edit: Edit,
-      /**
-       * méthode save, save importée depuis ./save.js
-       */
-      save,
-    } );
+```js
+// src/index.js
+registerBlockType("create-block/our-sponsors", {
+  /**
+   * Le titre de ce block, affiché dand l'éditeur, il peut être traduit
+   */
+  title: __("Our Sponsors", "our-sponsors"),
+  /**
+   * La courte description pour ce block, affichée dans le barre latérale. Elle peut être traduite.
+   */
+  description: __(
+    "Simple block that adds some information about the article sponsors.",
+    "our-sponsors"
+  ),
+  /**
+   * Les Blocks sont groupés par catégories  (`common`, `embed`, `formatting`, `layout` ou `widgets`).
+   */
+  category: "widgets",
+  /**
+   * L'icône affichée pour ce block, https://developer.wordpress.org/resource/dashicons/
+   */
+  icon: "smiley",
+  /**
+   * Optional block extended support features.
+   */
+  supports: {
+    // Removes support for an HTML mode.
+    html: false,
+  },
+  /**
+   * méthode edit, Edit importée depuis ./edit.js
+   */
+  edit: Edit,
+  /**
+   * méthode save, save importée depuis ./save.js
+   */
+  save,
+})
+```
 
 👉 Pour commencer nous allons modifier le block de base afin qu’il affiche le paragraphe suivant :
 
@@ -110,57 +116,64 @@ Un block Gutenberg est un objet JavaScript avec un nombre de propriétés et mé
 
 N’oubliez pas de lancer le serveur de développement :
 
-    npm run start
+```
+npm run start
 
 
-    // src/edit.js
-    export default function Edit({ className }) {
-      return (
-        <p className={className}>
-          {__(
-            "The publishing of this content was possible thanks to the support of",
-            "our-sponsors"
-          )}{" "}
-          <a href="https://alyra.fr">Alyra.</a>
-        </p>
-      )
-    }
+// src/edit.js
+export default function Edit({ className }) {
+  return (
+    <p className={className}>
+      {__(
+        "The publishing of this content was possible thanks to the support of",
+        "our-sponsors"
+      )}{" "}
+      <a href="https://alyra.fr">Alyra.</a>
+    </p>
+  )
+}
+```
 
-
-
-    // src/save.js
-    export default function save() {
-      return (
-        <p>
-          {__(
-            "The publishing of this content was possible thanks to the support of",
-            "our-sponsors"
-          )}{" "}
-          <a className="sponsor" href="https://alyra.fr">Alyra.</a>
-        </p>
-      )
-    }
+```js
+// src/save.js
+export default function save() {
+  return (
+    <p>
+      {__(
+        "The publishing of this content was possible thanks to the support of",
+        "our-sponsors"
+      )}{" "}
+      <a className="sponsor" href="https://alyra.fr">
+        Alyra.
+      </a>
+    </p>
+  )
+}
+```
 
 ---
 
-Fichiers .scss
+### Fichiers .scss
 
 Nous allons modifier les fichier styles :
 
-    // src/style.scss - s'applique au front et back-end
-    .wp-block-create-block-our-sponsors {
-      a {
-        color: inherit;
-        text-decoration: underline;
-      }
-    }
+```scss
+// src/style.scss - s'applique au front et back-end
+.wp-block-create-block-our-sponsors {
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+```
 
-
-    // src/editor.scss - s'applique au back-end
-    .wp-block-create-block-our-sponsors {
-      border: 1px dotted black;
-      padding: 1rem;
-    }
+```scss
+// src/editor.scss - s'applique au back-end
+.wp-block-create-block-our-sponsors {
+  border: 1px dotted black;
+  padding: 1rem;
+}
+```
 
 ---
 
@@ -170,67 +183,70 @@ Les `attributes` servent à enregistrer les données concernant notre block. Les
 
 👉 Nous allons ajouter ceci dans `registerBlockType`
 
-    // src/index.js
-    attributes: {
-      sponsorName: {
-        type: "string",
-        source: "text",
-        selector: ".sponsor",
-      },
-      sponsorUrl: {
-        type: "string",
-        source: "attribute",
-        selector: ".sponsor",
-        attribute: "href",
-      },
-    },
+```js
+// src/index.js
+attributes: {
+  sponsorName: {
+    type: "string",
+    source: "text",
+    selector: ".sponsor",
+  },
+  sponsorUrl: {
+    type: "string",
+    source: "attribute",
+    selector: ".sponsor",
+    attribute: "href",
+  },
+},
+```
 
 (Vous trouverez plus de détails sur la configuration des attributs dans la documentation).
 
 Nous passons les `attributes` et la fonction `setAttributes` en tant que props dans la fonction `Edit`
 
-    // src/edit.js
-    import { TextControl } from "@wordpress/components"
+```js
+// src/edit.js
+import { TextControl } from "@wordpress/components"
 
-    export default function Edit({ className, attributes, setAttributes }) {
-      return (
-        <p className={className}>
-          {__(
-            "The publishing of this content was possible thanks to the support of",
-            "our-sponsors"
-          )}{" "}
-          <TextControl
-            label={__("Sponsor Name", "our-sponsors")}
-            value={attributes.sponsorName}
-            onChange={(val) => setAttributes({ sponsorName: val })}
-          />
-          <TextControl
-            label={__("Sponsor Url", "our-sponsors")}
-            value={attributes.sponsorUrl}
-            type="url"
-            onChange={(val) => setAttributes({ sponsorUrl: val })}
-          />
-        </p>
-      )
-    }
+export default function Edit({ className, attributes, setAttributes }) {
+  return (
+    <p className={className}>
+      {__(
+        "The publishing of this content was possible thanks to the support of",
+        "our-sponsors"
+      )}{" "}
+      <TextControl
+        label={__("Sponsor Name", "our-sponsors")}
+        value={attributes.sponsorName}
+        onChange={(val) => setAttributes({ sponsorName: val })}
+      />
+      <TextControl label={__("Sponsor Url", "our-sponsors")} value={attributes.sponsorUrl} type="url" onChange={(val) => setAttributes({ sponsorUrl: val })} />
+    </p>
+  )
+}
+```
 
 et ensuite nous allons aussi modifier la fonction `save`
 
-    export default function save({ attributes }) {
-      return (
-        <p>
-          {__(
-            "The publishing of this content was possible thanks to the support of",
-            "our-sponsors"
-          )}{" "}
-          <a className="sponsor" href={attributes.sponsorUrl}>{attributes.sponsorName}</a>
-        </p>
-      )
-    }
+```js
+export default function save({ attributes }) {
+  return (
+    <p>
+      {__(
+        "The publishing of this content was possible thanks to the support of",
+        "our-sponsors"
+      )}{" "}
+      <a className="sponsor" href={attributes.sponsorUrl}>
+        {attributes.sponsorName}
+      </a>
+    </p>
+  )
+}
+```
 
 ---
 
-Propriété `supports`
+### Propriété `supports`
 
 Nous pouvons ajouter les contrôles des couleurs :
 
@@ -243,9 +259,10 @@ Vous trouverez plus d’options dans la documentation.
 
 ---
 
-🇫🇷Traduction
+## 🇫🇷Traduction
 
-Introduction théorique
+### Introduction théorique
+
 Dans l’informatique, le système gettext permet de séparer la programmation de la traduction.
 Comment gettext fonctionne ?
 
@@ -263,7 +280,7 @@ Les fichiers `.mo` sont utilisés par WordPress pour assembler le document HTML 
 ⬇️
 Dans le cas des traductions dans les fichiers .js, WordPress a besoin de convertir le fichier `.po` en format JSON
 
-Loco Translate
+### Loco Translate
 
 Nous allons déjà pris soin de bien marquer nos textes. Afin de générer le fichier .POT et ensuite les fichiers `.po` et `.mo` pour la langue française, nous allons utiliser une extension WordPress Loco Translate.
 
@@ -287,7 +304,7 @@ Une fois le bouton “Save” appuyé la traduction des chaines de caractères d
 
 ![](https://paper-attachments.dropbox.com/s_F45F85F9387024D6F24B7C73EA6CDAAB2433290EEB9CB765965C08123927E256_1608015445214_Nos+Sponsors.png)
 
-Création du fichier JSON
+### Création du fichier JSON
 
 La fonction qui met en place les traductions des strings dans les fichiers `.js` est appelé dans `our-sponsors.php`, c’est la fonction `wp_set_script_translations`
 La ligne suivante génère le fichier JSON basé sur notre fichier `.po`. Le nom de ce fichier doit correspondre à `{text-domain}-{locale}-{handles}.json` dans notre cas
@@ -300,7 +317,9 @@ La ligne suivante génère le fichier JSON basé sur notre fichier `.po`. Le nom
 
 Nous devons ensuite ajouter le répertoire où se trouvera notre fichier traduction en tant que le troisième argument de `wp_set_script_translations`
 
-    // our-sponsors.php
-    wp_set_script_translations( 'create-block-our-sponsors-block-editor', 'our-sponsors', plugin_dir_path( __FILE__ ) );
+```php
+// our-sponsors.php
+wp_set_script_translations( 'create-block-our-sponsors-block-editor', 'our-sponsors', plugin_dir_path( __FILE__ ) );
+```
 
 `plugin_dir_path( __FILE__ )` retourne le chemin vers le fichier courant (ex. `/Users/ipehaa/Sites/blogtrotter/wp-content/plugins/our-sponsors/`)
