@@ -1,0 +1,42 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Our Sponsors\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-14 17:18+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.4.6; wp-5.6"
+
+#. Name of the plugin
+#: src/index.js:40
+msgid "Our Sponsors"
+msgstr ""
+
+#. Author of the plugin
+msgid "Paulina Hetman"
+msgstr ""
+
+#. Description of the plugin
+#: src/index.js:46
+msgid "Simple block that adds some information about the article sponsors."
+msgstr ""
+
+#: src/edit.js:35
+msgid "Sponsor Name"
+msgstr ""
+
+#: src/edit.js:40
+msgid "Sponsor Url"
+msgstr ""
+
+#: src/edit.js:30 src/save.js:20
+msgid "The publishing of this content was possible thanks to the support of"
+msgstr ""
