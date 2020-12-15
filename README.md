@@ -271,25 +271,25 @@ Vous trouverez plus d’options [dans la documentation](https://developer.wordpr
 
 ### Introduction théorique
 
-Dans l’informatique, le système gettext permet de séparer la programmation de la traduction.
-Comment gettext fonctionne ?
+Dans l’informatique, le système _gettext_ permet de séparer la programmation de la traduction.
+Comment _gettext_ fonctionne ?
 
-Au cours de la programmation, toutes les chaînes de caractères qui devraient être traduites sont marqués de la façon spéciale, par exemple `__( "I should be translated", "project-text-domain" )`.  
+Au cours de la programmation, toutes les chaînes de caractères qui devraient être traduites sont marqués de façon spéciale, par exemple `__( "I should be translated", "project-text-domain" )`.  
 Un site WordPress est composé de plusieurs “projets” (thème et plusieurs extensions), `"project-text-domain"` permet de traiter les textes de chaque thème et extension séparément.  
   
 ✅Dans notre cas, le *text domain* est `"our-sponsors"` et nous mettons tous nos textes ainsi : `__( "I should be translated", "our-sponsors" )`  
   
 ⬇️  
   
-👉Premièrement, un fichier modèle (template, fichier POT) est crée. Ce fichier aura l’extension `.pot` (Portable Object Template). Il comprendra tous les chaines   de caractères à traduire, extraites de tous les fichiers au sein d’un projet.  
+👉Premièrement, un fichier modèle (template, fichier POT) est créé. Ce fichier aura l’extension `.pot` (*Portable Object Template*). Il comprendra tous les chaines   de caractères à traduire, extraites de tous les fichiers au sein d’un projet.  
   
 ⬇️    
   
-👉Le fichier POT sera utilisé pour créer les fichier `.po` (Portable Object) pour chaque langue de traduction (par exemple `fr_FR.po`, `de_DE.po`, etc.)  
+👉Le fichier POT sera utilisé pour créer les fichier `.po` (*Portable Object*) pour chaque langue de traduction (par exemple `fr_FR.po`, `de_DE.po`, etc.)  
   
 ⬇️   
   
-Le fichiers `.po` sont compilés en fichiers binaires `.mo` (Machine Object)  
+Le fichiers `.po` sont compilés en fichiers binaires `.mo` (*Machine Object*)  
   
 ⬇️  
   
@@ -297,7 +297,7 @@ Les fichiers `.mo` sont utilisés par WordPress pour assembler le document HTML 
   
 ⬇️  
   
-Dans le cas des traductions dans les fichiers .js, WordPress a besoin de convertir le fichier `.po` en format JSON.
+Dans le cas des traductions dans les fichiers .js, WordPress a besoin de convertir les fichiers `.po` en format JSON.
 
 ### Loco Translate
 
@@ -305,7 +305,7 @@ Nous allons déjà pris soin de bien marquer nos textes. Afin de générer le fi
 
 ![](https://paper-attachments.dropbox.com/s_F45F85F9387024D6F24B7C73EA6CDAAB2433290EEB9CB765965C08123927E256_1608015360101_Loco+Translate.png)
 
-Dans les réglages de loco translate nous allons: “Scanner les fichiers JavaScript avec des extensions : js”
+Dans les réglages de *Loco Translate* nous allons: “Scanner les fichiers JavaScript avec des extensions : js”
 
 ![](https://paper-attachments.dropbox.com/s_F45F85F9387024D6F24B7C73EA6CDAAB2433290EEB9CB765965C08123927E256_1608015376045_Reglages+de+Iextension.png)
 
@@ -325,8 +325,8 @@ Une fois le bouton “Save” appuyé la traduction des chaines de caractères d
 
 ### Création du fichier JSON
 
-La fonction qui met en place les traductions des strings dans les fichiers `.js` est appelé dans `our-sponsors.php`, c’est la fonction `wp_set_script_translations`
-La ligne suivante génère le fichier JSON basé sur notre fichier `.po`. Le nom de ce fichier doit correspondre à `{text-domain}-{locale}-{handles}.json` dans notre cas
+La fonction qui met en place les traductions des strings dans les fichiers `.js` est appelée dans le fichier `our-sponsors.php`, c’est la fonction `wp_set_script_translations`.  
+La ligne suivante génère le fichier `JSON` basé sur notre fichier `.po`. Le nom de ce fichier doit correspondre à `{text-domain}-{locale}-{handles}.json` dans notre cas
 
 - text-domain → our-sponsors
 - locale → fr_FR
