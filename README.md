@@ -276,7 +276,8 @@ Dans l’informatique, le système gettext permet de séparer la programmation d
 Comment gettext fonctionne ?
 
 Au cours de la programmation, toutes les chaînes de carectères qui devraient être traduites sont marqués de la façon spéciale `__("I should be translated", "project-text-domain")`.  
-Un site WordPress est composé de plusieurs “projets” (thème et plusieurs extensions), `"project-text-domain"` permet de traiter les textes de chaque thème et extension séparément.
+Un site WordPress est composé de plusieurs “projets” (thème et plusieurs extensions), `"project-text-domain"` permet de traiter les textes de chaque thème et extension séparément.  
+  
 ✅Dans notre cas, le text domain est `"our-sponsors"` et nous mettons tous nos texte ainsi : `__("I should be translated", "our-sponsors")`  
   
 ⬇️  
