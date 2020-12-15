@@ -124,7 +124,7 @@ npm run start
 
 ### Fichiers `edit.js` & `save.js`
 
-Ce qui sera affiché dans l'éditeur :
+Nous allons modifier ce qui sera affiché dans l'éditeur :
 
 ```js
 // src/edit.js
@@ -141,7 +141,7 @@ export default function Edit({ className }) {
 }
 ```
 
-Et ce qui sera enregistré dans la base de données quand nous sauvegardons l'article :
+et ce qui sera enregistré dans la base de données quand nous sauvegardons l'article :
 
 ```js
 // src/save.js
@@ -186,7 +186,7 @@ Nous allons modifier les fichier styles :
 
 ---
 
-Attributes du block
+## Attributes du block
 
 Les `attributes` servent à enregistrer les données concernant notre block. Les `attributes` informent WordPress comment interpreter le contenu enregistré dans la base de données : quels sont les éléments statiques, et quelles parties sont personnalisable dans l’éditeur.
 
