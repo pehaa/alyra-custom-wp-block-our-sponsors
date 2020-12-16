@@ -259,7 +259,7 @@ Nous pouvons ajouter les réglages des couleurs :
 ```js
 supports: {
   html: false,
-  colors: true
+  color: true
 }
 ```
 
