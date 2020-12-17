@@ -11,7 +11,7 @@ import { registerBlockType } from "@wordpress/blocks"
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
 import { __ } from "@wordpress/i18n"
-
+import { withColors } from "@wordpress/block-editor"
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * All files containing `style` keyword are bundled together. The code used
@@ -86,7 +86,7 @@ registerBlockType("create-block/our-sponsors", {
   /**
    * @see ./edit.js
    */
-  edit: Edit,
+  edit: withColors()(Edit),
 
   /**
    * @see ./save.js
