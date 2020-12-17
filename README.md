@@ -252,15 +252,26 @@ export default function save({ attributes }) {
 
 ---
 
-## Propriété `supports`
+## Propriété `supports`, les réglages des couleurs 
 
-Nous pouvons ajouter les réglages des couleurs :
+Dans cet étape nous allons ajouter les réglages des couleurs. Premièrement nous ajoutons `color: true` dans `supports` 
 
 ```js
+// src/index.js
 supports: {
   html: false,
   color: true
 }
+```
+
+Pour que les couleurs soient fonctionnelles et correctement enregistrées, nous allons envelopper la component `Edit` avec la fonction `withColors()` importée depuis `@wordpress/block-editor`
+
+```js
+// src/index.js
+// ...
+import { withColors } from "@wordpress/block-editor"
+// ...
+edit: withColors()(Edit)
 ```
 
 Vous trouverez plus d’options [dans la documentation](https://developer.wordpress.org/block-editor/developers/block-api/block-supports/).
